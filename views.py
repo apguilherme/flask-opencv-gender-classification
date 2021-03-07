@@ -4,14 +4,14 @@ import cv2 # pip install opencv-python #in case of error
 from PIL import Image
 import pickle
 
-IMG_PATH = "flask-opencv-gender-classification/static"
-
+IMG_PATH = "flask-opencv-gender-classification-main/static"
+print(os.getcwd())
 # load model
-haar = cv2.CascadeClassifier("./mydata/haarcascade_frontalface_default.xml")
+haar = cv2.CascadeClassifier("./flask-opencv-gender-classification-main/model/haarcascade_frontalface_default.xml")
 # pickle files
-mean = pickle.load(open("./mydata/mean_preprocess.pickle", "rb"))
-model_svm = pickle.load(open("./mydata/model_svm.pickle", "rb"))
-model_pca = pickle.load(open("./mydata/pca50.pickle", "rb"))
+mean = pickle.load(open("./flask-opencv-gender-classification-main/model/mean_preprocess.pickle", "rb"))
+model_svm = pickle.load(open("./flask-opencv-gender-classification-main/model/model_svm.pickle", "rb"))
+model_pca = pickle.load(open("./flask-opencv-gender-classification-main/model/pca50.pickle", "rb"))
 print("Model loaded sucessfully")
 
 
