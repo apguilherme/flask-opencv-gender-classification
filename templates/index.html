@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block mybody %}
+
+<div class="imgform">
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" class="btn btn-outline-secondary">
+        <input type="submit" value="Upload & Predict" class="btn btn-info">
+    </form>
+
+    {% if uploaded %}
+    <div class="imgdisplay">
+        <div class="card border-secondary mb-3" style="width: 18rem;">
+            <img class="card-img-top" src="{{ url_for('static', filename='uploads/') }}{{filename}}" alt="image uploaded" width="{{w}}">
+            <div class="card-body">
+              <p class="card-text">Original image</p>
+            </div>
+          </div>
+          <div class="card border-success mb-3" style="width: 18rem;margin-left: 3%;">
+            <img class="card-img-top" src="{{ url_for('static', filename='predictions/') }}{{filename}}" alt="image uploaded" width="{{w}}">
+            <div class="card-body">
+              <p class="card-text">Classified image</p>
+            </div>
+          </div>
+    </div>
+    {% else %}
+    <p style="color: red;">Upload an image.</p>
+    {% endif %}
+</div>
+{% endblock %}
